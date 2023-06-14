@@ -23,7 +23,6 @@ jobs:
         ports:
           - 5432:5432
 
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,11 +30,21 @@ jobs:
       - name: Show Working directory checkout 1
         run: ls
 
+      - name: Show GITHUB_TOKEN
+        env:
+          SOMETOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$SOMETOKEN"
+
+      - name: Show GITHUB_TOKEN2
+        env:
+          SOMETOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$SOMETOKEN"
+
       - name: Check out db repo
         uses: actions/checkout@master
         with:
           repository: StartEngine/startengine-db
-          path: ./dbstuff
+          path: ./startengine-db
           submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
 
