@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check out db repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         with:
           repository: StartEngine/startengine-db
           token: ${{ secrets.GITHUB_TOKEN }}
