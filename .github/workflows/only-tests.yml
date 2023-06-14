@@ -48,8 +48,8 @@ jobs:
         with:
           repository: StartEngine/startengine-db
           path: ./startengine-db
-          submodules: recursive
-          token: ${{ secrets.startengine-github-token }}
+#          submodules: recursive
+#          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show Working directory checkout 2
         run: ls
