@@ -28,11 +28,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Show Working directory checkout 1
+        run: ls
+
       - name: Check out db repo
         uses: actions/checkout@master
         with:
           repository: StartEngine/startengine-db
+          path: ./dbstuff
+          submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Show Working directory checkout 2
+        run: ls
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -42,6 +50,7 @@ jobs:
           
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+
 
       - name: Build with Gradle
         run:
