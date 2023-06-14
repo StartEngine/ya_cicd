@@ -33,11 +33,6 @@ jobs:
       - name: Show Working directory checkout 1
         run: ls
 
-      - name: Show PAT
-        env:
-          SOMETOKEN2: ${{ secrets.startengine-github-token  }}
-        run: echo "$SOMETOKEN2"
-
       - name: Show GITHUB_TOKEN
         env:
           SOMETOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,8 +43,8 @@ jobs:
         with:
           repository: StartEngine/startengine-db
           path: ./startengine-db
-#          submodules: recursive
-#          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show Working directory checkout 2
         run: ls
